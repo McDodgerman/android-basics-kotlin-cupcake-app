@@ -21,12 +21,11 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
-
-        <variable
             name="summaryFragment"
-            type="com.example.cupcake.SummaryFragment" />
+            type="com.stargrazer.cupcake.SummaryFragment"/>
+        <variable
+            name="viewModel"
+            type="com.stargrazer.cupcake.model.OrderViewModel" />
     </data>
 
     <ScrollView
@@ -62,8 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    android:text="@{viewModel.quantity.toString()}"
-                    tools:text="6 cupcakes" />
+                    tools:text="@{viewModel.quantity.toString()}" />
 
                 <View
                     android:id="@+id/divider1"
@@ -86,8 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    android:text="@{viewModel.flavor}"
-                    tools:text="Chocolate" />
+                    tools:text="@{viewModel.flavor}" />
 
                 <View
                     android:id="@+id/divider2"
@@ -110,8 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    android:text="@{viewModel.date}"
-                    tools:text="Sunday" />
+                    tools:text="@{viewModel.date}" />
 
                 <View
                     android:id="@+id/divider3"
@@ -128,8 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/side_margin"
-                    android:text="@{@string/total_price(viewModel.price)}"
-                    tools:text="Total $5.00" />
+                    tools:text="@{@string/total_price(viewModel.price)}" />
 
             </LinearLayout>
 
@@ -138,8 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
-                android:onClick="@{() -> summaryFragment.sendOrder()}"
-                android:text="@string/send" />
+                android:text="@string/send"
+                android:onClick="@{() -> summaryFragment.sendOrder()}"/>
 
             <Button
                 android:id="@+id/cancel_button"
@@ -147,8 +142,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_between_elements"
-                android:onClick="@{() -> summaryFragment.cancelOrder()}"
-                android:text="@string/cancel" />
+                android:text="@string/cancel"
+                android:onClick="@{() -> summaryFragment.cancelOrder()}"/>
 
         </LinearLayout>
     </ScrollView>

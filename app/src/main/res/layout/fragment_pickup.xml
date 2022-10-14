@@ -22,12 +22,11 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
-
-        <variable
             name="pickupFragment"
-            type="com.example.cupcake.PickupFragment" />
+            type="com.stargrazer.cupcake.PickupFragment"/>
+        <variable
+            name="viewModel"
+            type="com.stargrazer.cupcake.model.OrderViewModel" />
     </data>
 
     <ScrollView
@@ -51,37 +50,37 @@
                     android:id="@+id/option0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    tools:text="Thursday"
                     android:checked="@{viewModel.date.equals(viewModel.dateOptions[0])}"
                     android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[0])}"
-                    android:text="@{viewModel.dateOptions[0]}"
-                    tools:text="Thursday" />
+                    android:text="@{viewModel.dateOptions[0]}"/>
 
                 <RadioButton
                     android:id="@+id/option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    tools:text="Friday"
                     android:checked="@{viewModel.date.equals(viewModel.dateOptions[1])}"
                     android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[1])}"
-                    android:text="@{viewModel.dateOptions[1]}"
-                    tools:text="Friday" />
+                    android:text="@{viewModel.dateOptions[1]}" />
 
                 <RadioButton
                     android:id="@+id/option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    tools:text="Saturday"
                     android:checked="@{viewModel.date.equals(viewModel.dateOptions[2])}"
                     android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[2])}"
-                    android:text="@{viewModel.dateOptions[2]}"
-                    tools:text="Saturday" />
+                    android:text="@{viewModel.dateOptions[2]}" />
 
                 <RadioButton
                     android:id="@+id/option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    tools:text="Sunday"
                     android:checked="@{viewModel.date.equals(viewModel.dateOptions[3])}"
                     android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[3])}"
-                    android:text="@{viewModel.dateOptions[3]}"
-                    tools:text="Sunday" />
+                    android:text="@{viewModel.dateOptions[3]}" />
             </RadioGroup>
 
             <View
@@ -101,10 +100,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
-                android:text="@{@string/subtotal_price(viewModel.price)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
-                tools:text="Subtotal $5.00" />
+                tools:text="@{@string/subtotal_price(viewModel.price)}" />
 
             <Button
                 android:id="@+id/cancel_button"
@@ -112,23 +110,23 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/side_margin"
-                android:onClick="@{() -> pickupFragment.cancelOrder()}"
                 android:text="@string/cancel"
                 app:layout_constraintEnd_toStartOf="@id/next_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/next_button" />
+                app:layout_constraintTop_toTopOf="@id/next_button"
+                android:onClick="@{() -> pickupFragment.cancelOrder()}"/>
 
             <Button
                 android:id="@+id/next_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
-                android:onClick="@{() -> pickupFragment.goToNextScreen()}"
                 android:text="@string/next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cancel_button"
-                app:layout_constraintTop_toBottomOf="@id/subtotal" />
+                app:layout_constraintTop_toBottomOf="@id/subtotal"
+                android:onClick="@{() -> pickupFragment.goToNextScreen()}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

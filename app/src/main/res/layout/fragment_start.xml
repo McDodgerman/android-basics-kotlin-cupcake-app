@@ -23,7 +23,7 @@
     <data>
         <variable
             name="startFragment"
-            type="com.example.cupcake.StartFragment" />
+            type="com.stargrazer.cupcake.StartFragment" />
     </data>
 
     <ScrollView
@@ -61,9 +61,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_between_elements"
                 android:minWidth="@dimen/order_cupcake_button_width"
-                android:onClick="@{() -> startFragment.orderCupcake(1)}"
-                android:text="@string/one_cupcake" />
-
+                android:text="@string/one_cupcake"
+                android:onClick="@{() -> startFragment.orderCupcake(1)}"/>
             <Button
                 android:id="@+id/order_six_cupcakes"
                 android:layout_width="wrap_content"
@@ -71,8 +70,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_between_elements"
                 android:minWidth="@dimen/order_cupcake_button_width"
-                android:onClick="@{() -> startFragment.orderCupcake(6)}"
-                android:text="@string/six_cupcakes" />
+                android:text="@string/six_cupcakes"
+                android:onClick="@{() -> startFragment.orderCupcake(6)}"/>
 
             <Button
                 android:id="@+id/order_twelve_cupcakes"
@@ -81,8 +80,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_between_elements"
                 android:minWidth="@dimen/order_cupcake_button_width"
-                android:onClick="@{() -> startFragment.orderCupcake(12)}"
-                android:text="@string/twelve_cupcakes" />
+                android:text="@string/twelve_cupcakes"
+                android:onClick="@{() -> startFragment.orderCupcake(12)}"/>
         </LinearLayout>
     </ScrollView>
 </layout>

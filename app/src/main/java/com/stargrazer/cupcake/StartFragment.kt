@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.cupcake
+package com.stargrazer.cupcake
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,8 +22,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.cupcake.databinding.FragmentStartBinding
-import com.example.cupcake.model.OrderViewModel
+import com.stargrazer.cupcake.databinding.FragmentStartBinding
+import com.stargrazer.cupcake.model.OrderViewModel
 
 /**
  * This is the first screen of the Cupcake app. The user can choose how many cupcakes to order.
@@ -35,13 +35,13 @@ class StartFragment : Fragment() {
     // when the view hierarchy is attached to the fragment.
     private var binding: FragmentStartBinding? = null
 
-    // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
     private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragmentBinding = FragmentStartBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
@@ -56,15 +56,10 @@ class StartFragment : Fragment() {
      * Start an order with the desired quantity of cupcakes and navigate to the next screen.
      */
     fun orderCupcake(quantity: Int) {
-        // Update the view model with the quantity
         sharedViewModel.setQuantity(quantity)
-
-        // If no flavor is set in the view model yet, select vanilla as default flavor
-        if (sharedViewModel.hasNoFlavorSet()) {
+        if(sharedViewModel.hasNoFlavorSet()) {
             sharedViewModel.setFlavor(getString(R.string.vanilla))
         }
-
-        // Navigate to the next destination to select the flavor of the cupcakes
         findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
     }
 
