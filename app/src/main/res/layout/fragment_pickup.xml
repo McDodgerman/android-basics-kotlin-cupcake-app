@@ -23,10 +23,10 @@
     <data>
         <variable
             name="pickupFragment"
-            type="com.example.cupcake.PickupFragment"/>
+            type="com.stargrazer.cupcake.PickupFragment"/>
         <variable
             name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
+            type="com.stargrazer.cupcake.model.OrderViewModel" />
     </data>
 
     <ScrollView

@@ -23,7 +23,7 @@
     <data>
         <variable
             name="startFragment"
-            type="com.example.cupcake.StartFragment" />
+            type="com.stargrazer.cupcake.StartFragment" />
     </data>
 
     <ScrollView

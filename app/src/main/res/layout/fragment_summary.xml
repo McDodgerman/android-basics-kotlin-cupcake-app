@@ -22,10 +22,10 @@
     <data>
         <variable
             name="summaryFragment"
-            type="com.example.cupcake.SummaryFragment"/>
+            type="com.stargrazer.cupcake.SummaryFragment"/>
         <variable
             name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
+            type="com.stargrazer.cupcake.model.OrderViewModel" />
     </data>
 
     <ScrollView

@@ -1,8 +1,7 @@
-package com.example.cupcake.model
+package com.stargrazer.cupcake.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Transformations
 import java.text.NumberFormat
 import java.text.SimpleDateFormat

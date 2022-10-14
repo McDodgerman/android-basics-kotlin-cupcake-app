@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.cupcake
+package com.stargrazer.cupcake
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,49 +22,45 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.cupcake.databinding.FragmentFlavorBinding
-import com.example.cupcake.model.OrderViewModel
+import com.stargrazer.cupcake.databinding.FragmentStartBinding
+import com.stargrazer.cupcake.model.OrderViewModel
 
 /**
- * [FlavorFragment] allows a user to choose a cupcake flavor for the order.
+ * This is the first screen of the Cupcake app. The user can choose how many cupcakes to order.
  */
-class FlavorFragment : Fragment() {
+class StartFragment : Fragment() {
 
-    // Binding object instance corresponding to the fragment_flavor.xml layout
+    // Binding object instance corresponding to the fragment_start.xml layout
     // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
     // when the view hierarchy is attached to the fragment.
-    private var binding: FragmentFlavorBinding? = null
+    private var binding: FragmentStartBinding? = null
 
     private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val fragmentBinding = FragmentFlavorBinding.inflate(inflater, container, false)
+        val fragmentBinding = FragmentStartBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = sharedViewModel
-            flavorFragment = this@FlavorFragment
-        }
+        binding?.startFragment = this
     }
 
     /**
-     * Navigate to the next screen to choose pickup date.
+     * Start an order with the desired quantity of cupcakes and navigate to the next screen.
      */
-    fun goToNextScreen() {
-        findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
-    }
-
-    fun cancelOrder() {
-        sharedViewModel.resetOrder()
-        findNavController().navigate(R.id.action_flavorFragment_to_startFragment)
+    fun orderCupcake(quantity: Int) {
+        sharedViewModel.setQuantity(quantity)
+        if(sharedViewModel.hasNoFlavorSet()) {
+            sharedViewModel.setFlavor(getString(R.string.vanilla))
+        }
+        findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
     }
 
     /**
